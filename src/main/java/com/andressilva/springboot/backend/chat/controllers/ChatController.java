@@ -47,12 +47,6 @@ public class ChatController {
 	
 	@MessageMapping("/historial")
 	public void historial(String clienteId){
-		System.out.println("entrando a solciitar historial");
-		List<Mensaje> sms = chatService.obtenerUltimos10Mensajes();
-		
-		System.out.println(sms);
-		
-		
 		webSocket.convertAndSend("/chat/historial/"+clienteId,chatService.obtenerUltimos10Mensajes());
 	}
 }
